@@ -37,6 +37,7 @@ const app = http.createServer(async (request, response) => {
                 const modArray = arr.map(mA => ({ ...mA, ...mA.id === id && modTask }))
                 const strData = JSON.stringify(modArray)
                 fs.writeFile(jsonPath, strData)
+                response.writeHead(204)
             })
         }
     }
